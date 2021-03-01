@@ -1,1 +1,306 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body{
+    font-family: "Lato" , sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+/************* modtech **********/
+.header{
+    height: 95vh;
+    background-image: linear-gradient(to right bottom , rgb(126, 213, 112, 0.8), rgb(40, 180, 133,0.8)),url(assets/image/find-dream-image-bg.jpg);
+    background-position: top;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0 ,100% 75vh, 0 100%);
+    position: relative;
+}
+
+.logo-home{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo{
+    height: 35px;
+}
+
+.text-position{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.text-box{
+    text-transform: uppercase;
+    color: #fff;
+    padding-bottom: 60px;
+}
+
+.text-out{
+    letter-spacing: 35px;
+    display: block;
+    font-weight: 400;
+    font-size: 60px;
+
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+}
+
+.text-life{
+    letter-spacing: 17.4px;
+    display: block;
+    font-weight: 700;
+    font-size: 20px;
+
+    animation: moveInRight;
+    animation-duration: 3s;
+}
+
+@keyframes moveInLeft {
+  
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+  
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInButtom {
+  
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+.btn-white{
+    background-color:#fff;
+    color: #777;
+}
+
+.btn:link,
+.btn:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border-radius: 100px;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgb(0, 0, 0,.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgb(0, 0, 0,.2);
+}
+
+.btn::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animation {
+    animation: moveInButtom;
+    animation-duration:.5s ;
+    animation-timing-function:ease-out;
+    animation-delay: .75s;
+    animation-fill-mode: backwards;
+}
+
+.navigation-checkbox {
+    display: none;
+}
+
+.navigation-button{
+    background-color: #fff;
+    height: 5rem;
+    width: 5rem;
+    position:fixed ;
+    top: 3rem;
+    right: 3rem;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba(black, .1);
+    text-align: center;
+    cursor: pointer;
+}
+
+.navigation-background{
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    position:fixed ;
+    top: 3.5rem;
+    right: 3.5rem;
+    z-index: 1000;
+    background-image: radial-gradient(#7ed56f,#28b485 );
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+    /* transform: scale(80); */
+}
+
+.navigation-nav{
+    height: 100vh;
+    position:fixed ;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    opacity: 0;
+    width: 0;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.navigation-list{
+    position:absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+.navigation-item{
+    margin: 1rem;
+}
+
+.navigation-link:link ,.navigation-link:visited {
+    display: inline-block;
+   font-size: 2rem;
+   font-weight: 300;
+   padding: 0rem 2rem;
+   color: #fff;
+   text-decoration:none;
+   text-transform: uppercase;
+   background-image: linear-gradient( 120deg, transparent 0%,transparent 50%, #fff 50% );
+   background-size: 220%;
+   transition:all .4s;
+}
+
+.navigation-link:hover ,.navigation-link:active{
+    background-position: 100%;
+    color: #55c57a;
+    transform: translateX(1rem);
+ }
+
+ 
+.navigation-checkbox:checked ~ .navigation-background {
+   transform: scale(80);
+}
+
+.navigation-checkbox:checked ~ .navigation-nav {
+    opacity: 1;
+    width: 100%;
+ }
+
+ /* icon */
+ .navigation-icon{
+     position: relative;
+     margin-top: 2.5rem;
+ }
+ .navigation-icon,.navigation-icon .navigation ,.navigation-icon::before,.navigation-icon::after {
+     width: 2.4rem ;
+     height: 2px;
+     background-color: #777;
+     display: inline-block;
+ }
+
+ .navigation-icon::before,.navigation-icon::after{
+     content: "";
+     position: absolute;
+     left: 0;
+     transition: all .2s;
+ }
+
+ .navigation-icon::before{
+     top: -.8rem;
+ }
+
+ .navigation-icon::after{
+    top: .8rem;
+ }
+
+ .navigation-button:hover .navigation-icon::before {
+     top: -1rem;
+ }
+
+ .navigation-button:hover .navigation-icon::after {
+    top: 1rem;
+}
+.navigation-checkbox:checked + .navigation-button .navigation-icon {
+    background-color: transparent;
+}
+
+.navigation-checkbox:checked + .navigation-button .navigation-icon::before  {
+    top: 0;
+    transform: rotate(135deg);
+}
+
+.navigation-checkbox:checked + .navigation-button .navigation-icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+}
